@@ -5,8 +5,8 @@ import pandas as pd
 
 print("DEBUG: Script Started")
 
-# --- CONFIGURATION ---
-# OpenSky uses: (min_lat, min_lon, max_lat, max_lon)
+#---CONFIGURATION---
+#OpenSky uses:(min_lat, min_lon, max_lat, max_lon)
 PERAK_BBOX = (3.6, 100.0, 6.0, 101.8)
 DB_NAME = 'perak_flights.db'
 FETCH_INTERVAL = 120 
@@ -48,13 +48,13 @@ def start_collecting():
             response = requests.get(url, params=params, timeout=30)
             data = response.json()
             
-            # Check if 'states' exists in the response
+            #Check if 'states' exists in the response
             if data and "states" in data and data["states"] is not None:
                 states = data["states"]
                 cursor = db_conn.cursor()
                 
                 for s in states:
-                    # s[0]=icao24, s[1]=callsign, s[5]=lon, s[6]=lat, s[7]=baro_alt, s[9]=velocity
+                    #s[0]=icao24, s[1]=callsign, s[5]=lon, s[6]=lat, s[7]=baro_alt, s[9]=velocity
                     cursor.execute('''
                         INSERT INTO flight_logs (icao24, callsign, longitude, latitude, altitude, velocity)
                         VALUES (?, ?, ?, ?, ?, ?)
