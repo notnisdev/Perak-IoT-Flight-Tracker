@@ -8,8 +8,8 @@ try:
     print(f"📊 Total raw records: {len(df)}")
     print(f"🔎 Columns found in your DB: {list(df.columns)}")
 
-    # Step 1: Find the right names for altitude and velocity
-    # We look for any column that contains the word 'alt' or 'velo'
+    #Find the right names for altitude and velocity
+    #Look for any column that contains the word 'alt' or 'velo'
     alt_col = [c for c in df.columns if 'alt' in c.lower()]
     vel_col = [c for c in df.columns if 'vel' in c.lower()]
     call_col = [c for c in df.columns if 'call' in c.lower()]
@@ -17,14 +17,14 @@ try:
     if not alt_col or not vel_col:
         print("❌ Could not find altitude or velocity columns. Please check the 'Columns found' list above.")
     else:
-        # Step 2: Clean using the discovered column names
+        #Clean using the discovered column names
         target_cols = [call_col[0], alt_col[0], vel_col[0]]
         df_clean = df.dropna(subset=target_cols)
         
-        # Trim whitespace
+        #Trim whitespace
         df_clean[call_col[0]] = df_clean[call_col[0]].str.strip()
 
-        # Step 3: Save to CSV
+        #Save to CSV
         df_clean.to_csv('perak_flights_CLEANED.csv', index=False)
         print(f"✅ Success! {len(df_clean)} records saved to 'perak_flights_CLEANED.csv'.")
 
