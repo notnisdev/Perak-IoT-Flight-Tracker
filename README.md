@@ -1,4 +1,4 @@
-<img width="2559" height="1469" alt="image" src="https://github.com/user-attachments/assets/d9d5cbc1-2358-4c3e-9c91-0211ce7750d8" />PROJECT OVERVIEW:
+PROJECT OVERVIEW:
 The goal of this project is to monitor and analyze real-time aircraft telemetry over the Perak region using an end-to-end IoT data pipeline. Over a 3 monitoring period, we collected 2,708 aircraft records using the OpenSky Network API.
 
 REPOSITORY STRUCTURE:
@@ -14,4 +14,8 @@ HOW TO RUN:
 3. Run the python dashboard.py to view the processed flight insights and statisical trends. 
 
 To view the dashboard, in the terminal in vs code, make sure to type streamlit run dashboard.py or open it in Chrome by pasting this link: http://localhost:8501
+
+<img width="2559" height="1469" alt="Screenshot 2026-03-29 174153" src="https://github.com/user-attachments/assets/ac9c87d9-94f1-4d6c-9670-6621cc816f27" />
+
+
 
